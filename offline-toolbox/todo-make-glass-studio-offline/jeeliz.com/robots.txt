@@ -1,0 +1,9 @@
+# START YOAST BLOCK
+# ---------------------------
+User-agent: *
+Disallow:
+
+Sitemap: https://jeeliz.com/sitemap_index.xml
+Sitemap: https://jeeliz.com/xavierbourry/sitemap_index.xml
+# ---------------------------
+# END YOAST BLOCK

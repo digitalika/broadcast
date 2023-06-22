@@ -1,0 +1,91 @@
+ 
+<!DOCTYPE html>
+<head>
+  <meta charset='utf-8'/>
+  <meta http-equiv="content-language" content="en-EN" />
+
+  <title>Jeeliz Glasses Studio 3D</title>
+
+  <!-- libs for GUI -->
+  <script src='libs/jquery/jquery-3.5.1.min.js'></script>
+  <script src='libs/datGui/dat.gui.min.js'></script>
+
+  <!-- JEELIZENGINE 3D -->
+  <script src='src/JESettings.js'></script>
+  <!-- dev version: -->
+  <!-- <script src='../../JeelizEngine3D/js/libs.php'></script>
+  <script src='../../JeelizEngine3D/js/script.php?isMinifyShader=false&isIncludeMain=false'></script> -->
+  <!-- prod version: -->
+  <script src='libs/JeelizEngine3D/libs.js'></script>
+  <script src='libs/JeelizEngine3D/script.js'></script>
+
+  <!-- THREE.JS to parse and convert GLTF file -->
+  <script src='libs/threejs_117/three.min.js'></script>
+  <script src='libs/threejs_117/GLTFLoader.js'></script>
+
+  <!-- JEEFIT WIDGET (same as https://github.com/jeeliz/jeelizGlassesVTOWidget)
+    for the AR try-on feature: -->
+  <script src='libs/JeelizVTOWidget/JeelizVTOWidget.js'></script>
+  <!-- JEEFIT Widget dev mode: -->
+  <!-- <script src='../widget/js/JeeWidget.php?debug=true&pathDistance=2'></script> -->
+  <!-- <script src='../widget/js/JeeWidget.php?debug=false&pathDistance=2'></script> -->
+
+  <!-- App specific scripts: -->
+  <script src='src/App.js'></script>
+  <script src='src/GLTF2JE.js'></script>
+  <script src='src/main.js'></script>
+
+  <!-- STYLE: -->
+  <link rel='stylesheet' href='libs/datGui/dat.gui.css' type='text/css' />
+  <link rel='stylesheet' href='css/style.css' type='text/css' />
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+  <link rel='stylesheet' href='css/datGuiLight.css' type='text/css' />
+
+</head>
+
+<body onload='main()'>
+  <div class='app'>
+    <div class='banner'>
+      <div class='helpMenu'>
+        <a href='doc/GlassesStudio3DDoc.pdf' target='_blank'>Doc</a>
+        | <a href='testFiles/GlassesStudio3DSampleFiles.zip'>Download sample files</a>
+      </div>
+      <h1>Jeeliz Glasses Studio 3D</h1>      
+    </div>
+
+    <div class='content'>
+      <div class='view3D' id='view3DPlaceHolder'>
+        <canvas id='view3DCanvas'></canvas>
+        <div id='JeelizVTOWidget'></div>
+        <div id='importModelNotice'>
+          Please import a GLTF or GLB 3D model.<br/>
+          You can try with these ones:
+          <a href='testFiles/glasses1.glb' target='_blank'>glasses1.glb</a>,
+          <a href='testFiles/glasses2.glb' target='_blank'>glasses2.glb</a>
+        </div>
+      </div>
+
+      <div id='controls'>
+        <div class='buttons'>
+          <input type="file" id="inputFileImportGLTF" />
+          <button id='buttonImportGLTF'>Import GLTF</button>
+          <button id='buttonViewAR'>View in AR</button>
+          <button id='buttonExportJSON'>Export as JSON</button>
+          <hr/>
+        </div>
+
+
+        <div class='materialSelector'>
+          <select id="material">
+          </select>
+        </div>
+
+        <div id='materialEditor'>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</body>
